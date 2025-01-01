@@ -133,7 +133,7 @@ end)
 local Players = game:GetService("Players")
 local Title = "....."
 local SubTitle = "By Ztx" --Main Rewrite discord.gg/9PzEWrzgXR
-local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/Tgoduiem/Test-Main/refs/heads/main/.......lua"))()
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/NguyenLam2504/rblx/refs/heads/main/gay.lua"))()
 local Window = getgenv().Window or Fluent:CreateWindow({
     Title = Title,
     SubTitle = SubTitle,
