@@ -15,15 +15,18 @@ local Window = getgenv().Window or Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
+    Setting = Window:AddTab({ Title = "Settings", Icon = "" }),
+    Status = Window:AddTab({ Title = "Status",Icon = "" }),
+    NguoiChoi = Window:AddTab({ Title = "Local Player", Icon = "" }),
     Shop = Window:AddTab({ Title = "Shop", Icon = "" }),
-    Main = Window:AddTab({ Title = "Sub Farming", Icon = "" }),
-    Main2 = Window:AddTab({ Title = "Stack Farm", Icon = "" }),
-    Setting = Window:AddTab({ Title = "Setting", Icon = "" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    SubFram = Window:AddTab({ Title = "Sub Farming", Icon = "" }),
+    OtherFram = Window:AddTab({ Title = "Other Framing", Icon = "" }),
     Item = Window:AddTab({ Title = "Get Item", Icon = "" }),
     Race = Window:AddTab({ Title = "RaceV4-Mirage", Icon = "" }),
-    Sea = Window:AddTab({ Title = "Sea Event", Icon = "" }),
+    Event = Window:AddTab({ Title = "Sea Event", Icon = "" }),
     Raid = Window:AddTab({ Title = "Raid - Material", Icon = "" }),
-    Misc = Window:AddTab({ Title = "Misc", Icon = "" })
+    Pvp = Window:AddTab({ Title = "PVP-Aimbot", Icon = "" })
 }
 
 local Options = Fluent.Options
