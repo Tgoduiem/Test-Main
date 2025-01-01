@@ -1,10 +1,6 @@
+if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
+local plr = game.Players.LocalPlayer
 
-
-
---Mob
-
-
--- Window Tabs
 local Players = game:GetService("Players")
 local Title = "....."
 local SubTitle = "By Ztx" --Main Rewrite discord.gg/9PzEWrzgXR
