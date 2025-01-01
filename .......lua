@@ -31,3 +31,5 @@ local Tabs = {
     UpRace = Window:AddTab({ Title = "UP Race", Icon = "" })
     PvP = Window:AddTab({ Title = "PVP", Icon = "" })
 }
+
+local Options = Fluent.Options
