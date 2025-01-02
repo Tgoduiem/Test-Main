@@ -84,6 +84,3 @@ SelectWeapon = Tabs.Setting:AddDropdown("SelectWeapon", {
             end)
         end
     end)
-    Toggle = Tabs.Setting:AddToggle("Toggle", {Title = "Auto Haki", Default = true })
-    Toggle:OnChanged(function(Value)
-    end)
