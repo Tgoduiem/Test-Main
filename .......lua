@@ -65,10 +65,9 @@ SelectWeapon = Tabs.Setting:AddDropdown("SelectWeapon", {
             end)
         end
     end)
-    Toggle = Tabs.Setting:AddToggle("MyToggle", {Title = "Auto Haki", Default = true })
+    Toggle = Tabs.Setting:AddToggle("Toggle", {Title = "Auto Haki", Default = true })
     Toggle:OnChanged(function(Value)
         _G.AUTOHAKI = Value
-        saveSettings()
     end)
     spawn(function()
     while wait(.1) do
