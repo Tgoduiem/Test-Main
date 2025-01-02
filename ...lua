@@ -100,3 +100,36 @@ BringMob = Tabs.Settings:AddToggle("BringMob", {Title = "Bring Mob", Default = f
 BringMob:OnChanged(function(Value)
 _G.BringMob = Value
 end)
+
+
+--Main--
+
+Tabs.Main:AddParagraph({
+    Title = "Main",
+    Content = "........"
+})
+
+MainLevel = Tabs.Main:AddToggle("MainLevel", {Title = "Auto Level Fram", Default = false })
+MainLevel:OnChanged(function(Value)
+_G.MainLevel = Value
+end)
+
+MainBone = Tabs.Main:AddToggle("MainBone", {Title = "Auto Bone Fram", Default = false })
+MainBone:OnChanged(function(Value)
+_G.MainBone = Value
+end)
+
+MainKatakuri = Tabs.Main:AddToggle("MainKatakuri", {Title = "Auto Katakuri Fram", Default = false })
+MainKatakuri:OnChanged(function(Value)
+_G.MainKatakuri = Value
+end)
+
+Tabs.Main:AddParagraph({
+    Title = "Mastery",
+    Content = "........"
+})
+
+MainMastery = Tabs.Main:AddToggle("MainMastery", {Title = "Fram Mastery", Default = false })
+MainMastery:OnChanged(function(Value)
+_G.MainKatakuri = Value
+end)
