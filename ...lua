@@ -32,6 +32,7 @@ local Tabs = {
 local Options = Fluent.Options
 -- Windows
 
+--Setting
 
 SelectWeapon = Tabs.Settings:AddDropdown("SelectWeapon", {
         Title = "Select Weapon",
@@ -74,3 +75,28 @@ ToggleBuso:OnChanged(function(Value)
 _G.AutoBuso = Value
 end)
 
+ToggleKen = Tabs.Settings:AddToggle("ToggleKen", {Title = "Auto On Ken", Default = false })
+ToggleKen:OnChanged(function(Value)
+_G.AutoKen = Value
+end)
+
+
+TurnOnv3 = Tabs.Settings:AddToggle("TurnOnv3", {Title = "Auto On V3", Default = false })
+TurnOnv3:OnChanged(function(Value)
+_G.TurnOnv3 = Value
+end)
+
+TurnOnv4 = Tabs.Settings:AddToggle("TurnOnv4", {Title = "Auto On V4", Default = false })
+TurnOnv4:OnChanged(function(Value)
+_G.TurnOnv4 = Value
+end)
+
+TeleLH = Tabs.Settings:AddToggle("TeleLH", {Title = "Teleport if low Health", Default = false })
+TeleLH:OnChanged(function(Value)
+_G.TeleLH = Value
+end)
+
+BringMob = Tabs.Settings:AddToggle("BringMob", {Title = "Bring Mob", Default = false })
+BringMob:OnChanged(function(Value)
+_G.BringMob = Value
+end)
