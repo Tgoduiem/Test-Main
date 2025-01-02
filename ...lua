@@ -69,10 +69,8 @@ SelectWeapon = Tabs.Settings:AddDropdown("SelectWeapon", {
             end)
         end
     end)
-Toggle = Tabs.Settings:AddToggle("MyToggle", {Title = "Auto Haki", Default = true })
-    Toggle:OnChanged(function(Value)
-        _G.AUTOHAKI = Value
-    end)
-  end
-end
+local ToggleAutoLevel = Tabs.Settings:AddToggle("ToggleAutoLevel", {Title = "Auto Farm Level", Default = false })
+ToggleAutoLevel:OnChanged(function(Value)
+_G.AutoLevel = Value
+end)
 
