@@ -62,10 +62,13 @@ SelectWeapon = Tabs.Setting:AddDropdown("SelectWeapon", {
                         if v.ToolTip == "Sword" then
                             if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
                                 _G.SelectWeapon = v.Name
-                            end
-                        end
-                    end
-                end
             end)
         end
     end)
+    AutoBuso = Tabs.Main:AddToggle("AutoBoneFlag", { Title = "Farm Bones", Default = false })
+    AutoBuso:OnChanged(function(Value)
+        _G.Auto_Buso = Value
+        end
+    end)
+    Options.AutoBusoFlag:SetValue(false)
+
