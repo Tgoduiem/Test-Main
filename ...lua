@@ -69,8 +69,8 @@ SelectWeapon = Tabs.Settings:AddDropdown("SelectWeapon", {
             end)
         end
     end)
-local ToggleAutoLevel = Tabs.Settings:AddToggle("ToggleAutoLevel", {Title = "Auto Farm Level", Default = false })
-ToggleAutoLevel:OnChanged(function(Value)
-_G.AutoLevel = Value
+ToggleBuso = Tabs.Settings:AddToggle("ToggleBuso", {Title = "Auto On Buso", Default = false })
+ToggleBuso:OnChanged(function(Value)
+_G.AutoBuso = Value
 end)
 
