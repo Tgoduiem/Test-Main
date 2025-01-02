@@ -65,10 +65,20 @@ SelectWeapon = Tabs.Setting:AddDropdown("SelectWeapon", {
             end)
         end
     end)
-    AutoBuso = Tabs.Main:AddToggle("AutoBoneFlag", { Title = "Farm Bones", Default = false })
-    AutoBuso:OnChanged(function(Value)
-        _G.Auto_Buso = Value
-        end
+    Toggle = Tabs.Setting:AddToggle("MyToggle", {Title = "Auto Haki", Default = true })
+    Toggle:OnChanged(function(Value)
+        _G.AUTOHAKI = Value
+        saveSettings()
     end)
-    Options.AutoBusoFlag:SetValue(false)
-
+    spawn(function()
+    while wait(.1) do
+        if _G.AUTOHAKI then 
+            if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+                local args = {
+                    [1] = "Buso"
+                }
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+            end
+        end
+    end
+end)
