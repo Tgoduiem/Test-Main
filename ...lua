@@ -391,7 +391,7 @@ Options.MainLevel:SetValue(false)
           FarmPos = v.HumanoidRootPart.CFrame
           MonFarm = v.Name
           --Click
-          until not _G.AutoLevel or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+          until not _G.MainLevel or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
           bringmob = false
         end   
           end
