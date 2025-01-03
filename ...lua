@@ -221,7 +221,7 @@ end
 ----------
 spawn(function()
         while wait() do
-            if _G.AutoFarm then
+            if _G.MainLevel then
                 spawn(function()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                     if not string.find(QuestTitle, NameMon) then
