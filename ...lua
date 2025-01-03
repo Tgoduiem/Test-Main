@@ -379,9 +379,9 @@ Options.MainLevel:SetValue(false)
           for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
           if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
           if v.Name == Ms then
-          bringmob = true
+          
           AutoHaki()
-          EquipTool(SelectWeapon)
+          EquipWeapon(SelectWeapon)
           toTarget(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
           v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
           v.HumanoidRootPart.Transparency = 1
@@ -392,7 +392,7 @@ Options.MainLevel:SetValue(false)
           MonFarm = v.Name
           --Click
           until not _G.MainLevel or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
-          bringmob = false
+          
         end   
           end
           end
