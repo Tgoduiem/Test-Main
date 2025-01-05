@@ -31,6 +31,43 @@ local Tabs = {
 
 local Options = Fluent.Options
 
+SelectWeapon = Tabs.Settings:AddDropdown("SelectWeapon", {
+        Title = "Select Weapon",
+        Values = { "Melee", "Sword" },
+        Multi = false,
+        Default = 1,
+    })
+
+    SelectWeapon:SetValue("Melee")
+
+    SelectWeapon:OnChanged(function(Value)
+        _G.SelectWeapon = Value
+    end)
+
+    task.spawn(function()
+        while wait() do
+            pcall(function()
+                if _G.SelectWeapon == "Melee" then
+                    for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.ToolTip == "Melee" then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                _G.SelectWeapon = v.Name
+                            end
+                        end
+                    end
+                elseif _G.SelectWeapon == "Sword" then
+                    for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.ToolTip == "Sword" then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                _G.SelectWeapon = v.Name
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+
 function CheckQuest() 
     MyLevel = game:GetService("Players").LocalPlayer.Data.Level.Value
     if World1 then
@@ -961,3 +998,12 @@ spawn(function()
             end
         end
     end)
+
+function EquipWeapon(ToolSe)
+        if not game.Players.LocalPlayer.Character:FindFirstChild(ToolSe) then
+            if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
+                Tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+                game.Players.LocalPlayer.Character.Humanoid:EquipTool(Tool)
+            end
+        end
+    end
