@@ -1038,3 +1038,6 @@ function TP2(Pos)
       end
     end
     
+function TelePPlayer(P)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+end
