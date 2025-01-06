@@ -714,6 +714,18 @@ BringMob:OnChanged(function(Value)
 _G.BringMonster = Value
 end)
 
+local DropdownTweenSpeed = Tabs.Settings:AddDropdown("SelectWeapon", {
+        Title = "Tween Speed",
+        Values = { "250", "275", "300", "325", "350" },
+        Multi = false,
+        Default = 250,
+    })
+
+    DropdownTweenSpeed:SetValue("TweenSpeed")
+    DropdownTweenSpeed:OnChanged(function(Value)
+        getgenv().TweenSpeed = Value
+    end)
+
 task.spawn(
     function()
         while task.wait() do
@@ -875,7 +887,7 @@ local CommF = Remotes:WaitForChild("CommF_", 9e9)
 
 local block = Instance.new("Part", workspace)
 block.Size = Vector3.new(1, 1, 1)
-block.Name = "Lamm Hup"
+block.Name = "windy dep trai"
 block.Anchored = true
 block.CanCollide = false
 block.CanTouch = false
@@ -889,37 +901,23 @@ end
 task.spawn(function()
   while task.wait() do
     if block and block.Parent == workspace then
-if _G.AutoLevel
-or _G.MethodFarm 
-or _G.TeleportIsland
-or _G.AutoNextIsland
-or _G.AutoMaterial
-or _G.SailBoat
-or _G.AutoSeaBest
-or _G.AutoKillShark
-or _G.AutoKillPiranha
-or _G.AutoKillFishCrew
-or _G.RelzFishBoat
-or _G.RelzPirateBrigade
-or _G.RelzPirateGrandBrigade
-or _G.AutoTerrorshark
-or _G.AutoNear
-or _G.DitElite
-or _G.AutoRaidPirate
-or _G.AutoHakiPad
-or _G.RipIndraKill
-or _G.AutoBartilo
-or _G.AutoFarmBossHallow
-or _G.AutoBoss
-or _G.Auto_DarkBoss
-or _G.Auto_DoughKing
-or _G.AutoSoulGuitar
-or _G.Factory
-or getgenv().TeleportPly
-or getgenv().Auto_Kill_Ply
-or _G.CollectFruit
-or _G.CollectFruitHop
-or _G.SegHub then
+      if _G.AutoAdvanceDungeon 
+      or _G.AutoDoughtBoss
+      or _G.Auto_DungeonMobAura
+      or _G.AutoFarmChest
+      or _G.AutoFarmBossHallow
+      or _G.AutoFarmSwanGlasses
+      or _G.AutoLongSword
+      or _G.AutoBlackSpikeycoat
+      or _G.AutoElectricClaw
+      or _G.AutoFarmGunMastery
+      or _G.AutoHolyTorch
+      or _G.AutoLawRaid
+      or _G.AutoFarmBoss
+      or _G.AutoTwinHooks
+      or _G.AutoOpenSwanDoo
+      or _G.AutoDragon_Trident or AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.KillFishCrew or _G.KillTerrorShark or _G.KillShark or _G.KillPiranha or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.RipIndraKill or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.AutoSeaBest or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or PirateShip or _G.Autodoughking or _G.AutoFarmMaterial or _G.QuestSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.AutoKai or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.RaidPirate or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or Tween_Fruit or KillPlayer or KillPlayerSpam or _G.SeaBeasts1 then
+ 
         getgenv().OnFarm = true
       else
         getgenv().OnFarm = false
@@ -978,21 +976,21 @@ end)
 task.spawn(function()
   local PortalPos = {}
   
-  if First_Sea then
+  if World1 then
     PortalPos = {
       Vector3.new(-4652, 873, -1754), -- Sky Island 1
       Vector3.new(-7895, 5547, -380), -- Sky Island 2
       Vector3.new(61164, 5, 1820), -- Under Water Island
       Vector3.new(3865, 5, -1926) -- Under Water Island Entrace
     }
-  elseif Second_Sea then
+  elseif World2 then
     PortalPos = {
       Vector3.new(-317, 331, 597), -- Flamingo Mansion
       Vector3.new(2283, 15, 867), -- Flamingo Room
       Vector3.new(923, 125, 32853), -- Cursed Ship
       Vector3.new(-6509, 83, -133) -- Zombie Island0
     }
-  elseif Third_Sea then
+  elseif World3 then
     PortalPos = {
       Vector3.new(-12471, 374, -7551), -- Mansion
       Vector3.new(5756, 610, -282), -- Hydra Island
@@ -1008,7 +1006,7 @@ task.spawn(function()
     local NearPos = math.huge
     local TpPos = Vector3.new()
     
-    table.foreach(PortalPos, function(_, pos)
+    table.foreach(PortalPos, function(___, pos)
       if (pos - position).Magnitude <= NearPos then
         NearPos = (pos - position).Magnitude
         TpPos = pos
@@ -1021,7 +1019,7 @@ end)
 local TweenService = game:GetService("TweenService")
 local TeleportPos
 local currentTween 
-local function Tween(Tween_Pos)
+local function topos(Tween_Pos)
     TeleportPos = Tween_Pos.p
     local plrPP = Player.Character and Player.Character.PrimaryPart
     if not plrPP then return end
@@ -1039,7 +1037,7 @@ local function Tween(Tween_Pos)
     elseif block then
         local tweenTime = Distance / getgenv().TweenSpeed
         if Distance <= 250 then
-            tweenTime = Distance / tonumber(getgenv().TweenSpeed * 1.😎
+            tweenTime = Distance / tonumber(getgenv().TweenSpeed * 1.8)
         end
         if currentTween then
             currentTween:Pause()
@@ -1058,39 +1056,25 @@ local function stopTween()
     end
 end
 
+
 spawn(function()
 game:GetService("RunService").Heartbeat:Connect(function()
-    if _G.AutoLevel
-    or _G.MethodFarm 
-    or _G.TeleportIsland
-    or _G.AutoNextIsland
-    or _G.AutoMaterial
-    or _G.SailBoat
-    or _G.AutoSeaBest
-    or _G.AutoKillShark
-    or _G.AutoKillPiranha
-    or _G.AutoKillFishCrew
-    or _G.RelzFishBoat
-    or _G.RelzPirateBrigade
-    or _G.RelzPirateGrandBrigade
-    or _G.AutoTerrorshark
-    or _G.AutoNear
-    or _G.DitElite
-    or _G.AutoRaidPirate
-    or _G.AutoHakiPad
-    or _G.RipIndraKill
-    or _G.AutoBartilo
-    or _G.AutoFarmBossHallow
-    or _G.AutoBoss
-    or _G.Auto_DarkBoss
-    or _G.Auto_DoughKing
-    or _G.AutoSoulGuitar
-    or _G.Factory
-    or getgenv().TeleportPly
-    or getgenv().Auto_Kill_Ply
-    or _G.CollectFruit
-    or _G.CollectFruitHop
-    or _G.SegHub then
+    if _G.AutoAdvanceDungeon 
+      or _G.AutoDoughtBoss
+      or _G.Auto_DungeonMobAura
+      or _G.AutoFarmChest
+      or _G.AutoFarmBossHallow
+      or _G.AutoFarmSwanGlasses
+      or _G.AutoLongSword
+      or _G.AutoBlackSpikeycoat
+      or _G.AutoElectricClaw
+      or _G.AutoFarmGunMastery
+      or _G.AutoHolyTorch
+      or _G.AutoLawRaid
+      or _G.AutoFarmBoss
+      or _G.AutoTwinHooks
+      or _G.AutoOpenSwanDoo
+      or _G.AutoDragon_Trident or AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.KillFishCrew or _G.KillTerrorShark or _G.KillShark or _G.KillPiranha or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.RipIndraKill or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.AutoSeaBest or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or PirateShip or _G.Autodoughking or _G.AutoFarmMaterial or _G.QuestSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.AutoKai or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.RaidPirate or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or Tween_Fruit or KillPlayer or KillPlayerSpam or _G.SeaBeasts1 then
       if not game:GetService("Workspace"):FindFirstChild("LOL") then
             local LOL = Instance.new("Part")
             LOL.Name = "LOL"
@@ -1133,8 +1117,8 @@ function TP2(Pos)
                 WaitHRP(game.Players.LocalPlayer).CFrame = PartTele.CFrame
             end)
         end
-        local lamhub = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.PartTele, TweenInfo.new(Distance / getgenv().TweenSpeed, Enum.EasingStyle.Linear), {CFrame = Pos})
-        lamhub:Play()
+        local itzwindy = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.PartTele, TweenInfo.new(Distance / getgenv().TweenSpeed, Enum.EasingStyle.Linear), {CFrame = Pos})
+        itzwindy:Play()
       end
     end
     
@@ -1162,6 +1146,10 @@ function TP2(Pos)
     end
     _G.StopTween = false
 end
+------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
 
 function BTP(P1)
 game.Players.LocalPlayer.Character.Head:Destroy()
@@ -1173,7 +1161,7 @@ end
     spawn(function()
 			while task.wait() do
 				pcall(function()
-					if _G.AutoLevel or _G.MethodFarm or _G.TeleportIsland or _G.AutoNextIsland or _G.AutoMaterial or _G.SailBoat or _G.AutoSeaBest or _G.AutoKillShark or _G.AutoKillPiranha or _G.AutoKillFishCrew or _G.RelzFishBoat or _G.RelzPirateBrigade or _G.RelzPirateGrandBrigade or _G.AutoTerrorshark or _G.AutoNear or _G.DitElite or _G.AutoRaidPirate or _G.AutoHakiPad or _G.RipIndraKill or _G.AutoBartilo or _G.AutoFarmBossHallow or _G.AutoBoss or _G.Auto_DarkBoss or _G.Auto_DoughKing or _G.AutoSoulGuitar or _G.Factory or getgenv().TeleportPly or getgenv().Auto_Kill_Ply or _G.CollectFruit or _G.CollectFruitHop then
+					if _G.AutoAdvanceDungeon or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.KillFishCrew or _G.KillTerrorShark or _G.KillShark or _G.KillPiranha or _G.RipIndraKill or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.AutoSeaBest or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or PirateShip or _G.Autoheart or _G.Autodoughking or _G.AutoFarmMaterial or _G.QuestSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.AutoKai or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.RaidPirate or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or Tween_Fruit or KillPlayer or KillPlayerSpam or _G.SeaBeasts1 then
 						if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
 							local Noclip = Instance.new("BodyVelocity")
 							Noclip.Name = "BodyClip"
@@ -1187,11 +1175,13 @@ end
 				end)
 			end
 		end)
-	
+		------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+
 spawn(function()
   pcall(function()
     game:GetService("RunService").Stepped:Connect(function()
-      if _G.AutoLevel or _G.MethodFarm or _G.TeleportIsland or _G.AutoNextIsland or _G.AutoMaterial or _G.SailBoat or _G.AutoSeaBest or _G.AutoKillShark or _G.AutoKillPiranha or _G.AutoKillFishCrew or _G.RelzFishBoat or _G.RelzPirateBrigade or _G.RelzPirateGrandBrigade or _G.AutoTerrorshark or _G.AutoNear or _G.DitElite or _G.AutoRaidPirate or _G.AutoHakiPad or _G.RipIndraKill or _G.AutoBartilo or _G.AutoFarmBossHallow or _G.AutoBoss or _G.Auto_DarkBoss or _G.Auto_DoughKing or _G.AutoSoulGuitar or _G.Factory or getgenv().TeleportPly or getgenv().Auto_Kill_Ply or _G.CollectFruit or _G.CollectFruitHop then
+      if _G.AutoAdvanceDungeon or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.KillFishCrew or _G.KillTerrorShark or _G.KillShark or _G.KillPiranha or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.RipIndraKill or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.AutoSeaBest or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or PirateShip or _G.Autodoughking or _G.AutoFarmMaterial or _G.QuestSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.AutoKai or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.RaidPirate or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or Tween_Fruit or KillPlayer or KillPlayerSpam or _G.SeaBeasts1 then
       for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
       if v:IsA("BasePart") then
       v.CanCollide = false
