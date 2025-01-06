@@ -862,32 +862,50 @@ spawn(
         end
     end
 )
-local TweenService = game:GetService("TweenService")
+ocal TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
 local TeleportPos
 local currentTween 
+
+local function GetTPPos(position)
+    -- Hàm mẫu, bạn cần tự định nghĩa logic phù hợp
+    return position
+end
+
 local function topos(Tween_Pos)
+    if not Tween_Pos then return end
     TeleportPos = Tween_Pos.p
     local plrPP = Player.Character and Player.Character.PrimaryPart
     if not plrPP then return end
+
     local Distance = (plrPP.Position - Tween_Pos.p).Magnitude
     local PortalPos = GetTPPos(Tween_Pos.p)
-    if Tween_Pos.p.Y < plrPP.Position.Y then
-        plrPP.CFrame = CFrame.new(plrPP.Position.X, Tween_Pos.p.Y, plrPP.Position.Z)
-    elseif Tween_Pos.p.Y > plrPP.Position.Y then
+
+    -- Điều chỉnh vị trí Y
+    if Tween_Pos.p.Y < plrPP.Position.Y or Tween_Pos.p.Y > plrPP.Position.Y then
         plrPP.CFrame = CFrame.new(plrPP.Position.X, Tween_Pos.p.Y, plrPP.Position.Z)
     end
+
     if Distance > (Tween_Pos.p - PortalPos).Magnitude + 250 then
         plrPP.CFrame = CFrame.new(PortalPos)
-        block.CFrame = CFrame.new(PortalPos)
-        task.wait(2) 
+        if block then
+            block.CFrame = CFrame.new(PortalPos)
+        end
+        task.wait(2)
     elseif block then
-        local tweenTime = Distance / getgenv().TweenSpeed
+        -- Tính toán thời gian tween
+        local tweenTime = Distance / (getgenv().TweenSpeed or 50) -- Giá trị mặc định là 50 nếu chưa gán
         if Distance <= 250 then
-            tweenTime = Distance / tonumber(getgenv().TweenSpeed * 1.8)
+            tweenTime = Distance / ((getgenv().TweenSpeed or 50) * 1.8)
         end
+
+        -- Dừng tween hiện tại nếu có
         if currentTween then
-            currentTween:Pause()
+            currentTween:Cancel()
         end
+
+        -- Tạo tween mới
         local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
         local tweenGoal = {CFrame = Tween_Pos}
         currentTween = TweenService:Create(block, tweenInfo, tweenGoal)
