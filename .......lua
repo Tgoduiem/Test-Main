@@ -894,9 +894,9 @@ spawn(function()
                             if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 2000 then
 						        BTP(CFrameQuest)
                             elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 2000 then
-                                topos(CFrameQuest)
+                                Tween(CFrameQuest)
                             else
-						        topos(CFrameQuest)
+						        Tween(CFrameQuest)
 					        end
                         end
 					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 20 then
@@ -913,7 +913,7 @@ spawn(function()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 AutoHaki()                        
                                                 PosMon = v.HumanoidRootPart.CFrame
-                                                topos(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))                                                
+                                                Tween(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))                                                
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
@@ -932,10 +932,10 @@ spawn(function()
                                 end
                             end
                         else
-                            topos(CFrameMon)
+                            Tween(CFrameMon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
-                             topos(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(-16748.5273, 127.239319, 1013.28766, 0.924117982, 1.14822631e-08, 0.382107258, -6.77835166e-09, 1, -1.36565497e-08, -0.382107258, 1.00302051e-08, 0.924117982))
+                             Tween(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(-16748.5273, 127.239319, 1013.28766, 0.924117982, 1.14822631e-08, 0.382107258, -6.77835166e-09, 1, -1.36565497e-08, -0.382107258, 1.00302051e-08, 0.924117982))
                             end
                         end
                     end
@@ -1098,7 +1098,7 @@ end)
 local TweenService = game:GetService("TweenService")
 local TeleportPos
 local currentTween 
-local function topos(Tween_Pos)
+local function Tween(Tween_Pos)
     TeleportPos = Tween_Pos.p
     local plrPP = Player.Character and Player.Character.PrimaryPart
     if not plrPP then return end
