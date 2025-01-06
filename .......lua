@@ -862,56 +862,65 @@ spawn(
         end
     end
 )
-ocal TweenService = game:GetService("TweenService")
-local Players = game:GetService("Players")
-local Player = Players.LocalPlayer
-local TeleportPos
-local currentTween 
 
-local function GetTPPos(position)
-    -- Hàm mẫu, bạn cần tự định nghĩa logic phù hợp
-    return position
+
+local TweenService = game:GetService("TweenService")
+local Player = game.Players.LocalPlayer -- Gán giá trị cho Player
+local block = workspace.SomeBlock -- Đảm bảo "SomeBlock" tồn tại trong Workspace
+
+local MAX_DISTANCE = 250
+local SPEED_MULTIPLIER = 1.8
+
+local function GetTPPos(targetPos)
+    -- Hàm giả định trả về vị trí portal
+    return targetPos + Vector3.new(0, 0, 10)
 end
 
+local currentTween
+
 local function topos(Tween_Pos)
-    if not Tween_Pos then return end
-    TeleportPos = Tween_Pos.p
+    if not Tween_Pos or not Tween_Pos.p then
+        warn("Invalid Tween_Pos provided!")
+        return
+    end
+
     local plrPP = Player.Character and Player.Character.PrimaryPart
-    if not plrPP then return end
+    if not plrPP then 
+        warn("Player's PrimaryPart not found!")
+        return
+    end
 
     local Distance = (plrPP.Position - Tween_Pos.p).Magnitude
     local PortalPos = GetTPPos(Tween_Pos.p)
 
-    -- Điều chỉnh vị trí Y
-    if Tween_Pos.p.Y < plrPP.Position.Y or Tween_Pos.p.Y > plrPP.Position.Y then
-        plrPP.CFrame = CFrame.new(plrPP.Position.X, Tween_Pos.p.Y, plrPP.Position.Z)
-    end
+    -- Căn chỉnh trục Y
+    plrPP.CFrame = CFrame.new(plrPP.Position.X, Tween_Pos.p.Y, plrPP.Position.Z)
 
-    if Distance > (Tween_Pos.p - PortalPos).Magnitude + 250 then
+    -- Logic dịch chuyển
+    if Distance > (Tween_Pos.p - PortalPos).Magnitude + MAX_DISTANCE then
         plrPP.CFrame = CFrame.new(PortalPos)
-        if block then
-            block.CFrame = CFrame.new(PortalPos)
-        end
-        task.wait(2)
+        block.CFrame = CFrame.new(PortalPos)
+        task.wait(2) 
     elseif block then
-        -- Tính toán thời gian tween
-        local tweenTime = Distance / (getgenv().TweenSpeed or 50) -- Giá trị mặc định là 50 nếu chưa gán
-        if Distance <= 250 then
-            tweenTime = Distance / ((getgenv().TweenSpeed or 50) * 1.8)
+        -- Logic tween
+        local tweenSpeed = getgenv().TweenSpeed or 1
+        local tweenTime = Distance / tweenSpeed
+
+        if Distance <= MAX_DISTANCE then
+            tweenTime = Distance / (tweenSpeed * SPEED_MULTIPLIER)
         end
 
-        -- Dừng tween hiện tại nếu có
         if currentTween then
-            currentTween:Cancel()
+            currentTween:Pause()
         end
 
-        -- Tạo tween mới
         local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
         local tweenGoal = {CFrame = Tween_Pos}
         currentTween = TweenService:Create(block, tweenInfo, tweenGoal)
         currentTween:Play()
     end
 end
+
 
 local function stopTween()
     if currentTween then
