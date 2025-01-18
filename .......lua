@@ -1130,7 +1130,7 @@ end)
 local TweenService = game:GetService("TweenService")
 local TeleportPos
 local currentTween 
-local function Tween(Tween_Pos)
+local function topos(Tween_Pos)
     TeleportPos = Tween_Pos.p
     local plrPP = Player.Character and Player.Character.PrimaryPart
     if not plrPP then return end
