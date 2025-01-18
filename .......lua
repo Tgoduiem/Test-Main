@@ -890,13 +890,13 @@ spawn(function()
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         StartMagnet = false
                         CheckQuest()
-                        if BypassTP then
+                        
                             if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 2000 then
 						        BTP(CFrameQuest)
                             elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 2000 then
-                                Tween(CFrameQuest)
+                                topos(CFrameQuest)
                             else
-						        Tween(CFrameQuest)
+						        topos(CFrameQuest)
 					        end
                         end
 					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 20 then
@@ -913,13 +913,13 @@ spawn(function()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 AutoHaki()                        
                                                 PosMon = v.HumanoidRootPart.CFrame
-                                                Tween(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))                                                
+                                                topos(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))                                                
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
                                                 
                                                 StartMagnet = true
-                                                if not Fast_Attack then
+            
                                                game:GetService("VirtualUser"):CaptureController()
 				       	                    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 672), game.Workspace.CurrentCamera.CFrame)
 				                            end
@@ -932,10 +932,10 @@ spawn(function()
                                 end
                             end
                         else
-                            Tween(CFrameMon)
+                            topos(CFrameMon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
-                             Tween(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(-16748.5273, 127.239319, 1013.28766, 0.924117982, 1.14822631e-08, 0.382107258, -6.77835166e-09, 1, -1.36565497e-08, -0.382107258, 1.00302051e-08, 0.924117982))
+                                topos(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(-16748.5273, 127.239319, 1013.28766, 0.924117982, 1.14822631e-08, 0.382107258, -6.77835166e-09, 1, -1.36565497e-08, -0.382107258, 1.00302051e-08, 0.924117982))
                             end
                         end
                     end
@@ -977,35 +977,7 @@ if blockfind and blockfind ~= block then
   blockfind:Destroy()
 end
 
-task.spawn(function()
-  while task.wait() do
-    if block and block.Parent == workspace then
-      if _G.AutoAdvanceDungeon 
-      or _G.AutoDoughtBoss
-      or _G.Auto_DungeonMobAura
-      or _G.AutoFarmChest
-      or _G.AutoFarmBossHallow
-      or _G.AutoFarmSwanGlasses
-      or _G.AutoLongSword
-      or _G.AutoBlackSpikeycoat
-      or _G.AutoElectricClaw
-      or _G.AutoFarmGunMastery
-      or _G.AutoHolyTorch
-      or _G.AutoLawRaid
-      or _G.AutoFarmBoss
-      or _G.AutoTwinHooks
-      or _G.AutoOpenSwanDoo
-      or _G.AutoDragon_Trident or AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.KillFishCrew or _G.KillTerrorShark or _G.KillShark or _G.KillPiranha or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.RipIndraKill or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.AutoSeaBest or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or PirateShip or _G.Autodoughking or _G.AutoFarmMaterial or _G.QuestSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.AutoKai or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.RaidPirate or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or Tween_Fruit or KillPlayer or KillPlayerSpam or _G.SeaBeasts1 then
- 
-        getgenv().OnFarm = true
-      else
-        getgenv().OnFarm = false
-      end
-    else
-      getgenv().OnFarm = false
-    end
-  end
-end)
+
 
 task.spawn(function()
   repeat task.wait()
@@ -1052,6 +1024,21 @@ task.spawn(function()
   end
 end)
 
+function GetTPPos(position)
+    local NearPos = math.huge
+    local TpPos = Vector3.new()
+    
+    table.foreach(PortalPos, function(___, pos)
+      if (pos - position).Magnitude <= NearPos then
+        NearPos = (pos - position).Magnitude
+        TpPos = pos
+      end
+    end)
+    return TpPos
+  end
+end)
+
+
 task.spawn(function()
   local PortalPos = {}
   
@@ -1081,59 +1068,47 @@ task.spawn(function()
     }
   end
   
-  function GetTPPos(position)
-    local NearPos = math.huge
-    local TpPos = Vector3.new()
-    
-    table.foreach(PortalPos, function(___, pos)
-      if (pos - position).Magnitude <= NearPos then
-        NearPos = (pos - position).Magnitude
-        TpPos = pos
+  
+
+  local TweenService = game:GetService("TweenService")
+  local TeleportPos
+  local currentTween 
+  local function topos(Tween_Pos)
+      TeleportPos = Tween_Pos.p
+      local plrPP = Player.Character and Player.Character.PrimaryPart
+      if not plrPP then return end
+      local Distance = (plrPP.Position - Tween_Pos.p).Magnitude
+      local PortalPos = GetTPPos(Tween_Pos.p)
+      if Tween_Pos.p.Y < plrPP.Position.Y then
+          plrPP.CFrame = CFrame.new(plrPP.Position.X, Tween_Pos.p.Y, plrPP.Position.Z)
+      elseif Tween_Pos.p.Y > plrPP.Position.Y then
+          plrPP.CFrame = CFrame.new(plrPP.Position.X, Tween_Pos.p.Y, plrPP.Position.Z)
       end
-    end)
-    return TpPos
+      if Distance > (Tween_Pos.p - PortalPos).Magnitude + 250 then
+          plrPP.CFrame = CFrame.new(PortalPos)
+          block.CFrame = CFrame.new(PortalPos)
+          task.wait(2) 
+      elseif block then
+          local tweenTime = Distance / getgenv().TweenSpeed
+          if Distance <= 250 then
+              tweenTime = Distance / tonumber(getgenv().TweenSpeed * 1.8)
+          end
+          if currentTween then
+              currentTween:Pause()
+          end
+          local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
+          local tweenGoal = {CFrame = Tween_Pos}
+          currentTween = TweenService:Create(block, tweenInfo, tweenGoal)
+          currentTween:Play()
+      end
   end
-end)
-
-local TweenService = game:GetService("TweenService")
-local TeleportPos
-local currentTween 
-local function Tween(Tween_Pos)
-    TeleportPos = Tween_Pos.p
-    local plrPP = Player.Character and Player.Character.PrimaryPart
-    if not plrPP then return end
-    local Distance = (plrPP.Position - Tween_Pos.p).Magnitude
-    local PortalPos = GetTPPos(Tween_Pos.p)
-    if Tween_Pos.p.Y < plrPP.Position.Y then
-        plrPP.CFrame = CFrame.new(plrPP.Position.X, Tween_Pos.p.Y, plrPP.Position.Z)
-    elseif Tween_Pos.p.Y > plrPP.Position.Y then
-        plrPP.CFrame = CFrame.new(plrPP.Position.X, Tween_Pos.p.Y, plrPP.Position.Z)
-    end
-    if Distance > (Tween_Pos.p - PortalPos).Magnitude + 250 then
-        plrPP.CFrame = CFrame.new(PortalPos)
-        block.CFrame = CFrame.new(PortalPos)
-        task.wait(2) 
-    elseif block then
-        local tweenTime = Distance / getgenv().TweenSpeed
-        if Distance <= 250 then
-            tweenTime = Distance / tonumber(getgenv().TweenSpeed * 1.8)
-        end
-        if currentTween then
-            currentTween:Pause()
-        end
-        local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear)
-        local tweenGoal = {CFrame = Tween_Pos}
-        currentTween = TweenService:Create(block, tweenInfo, tweenGoal)
-        currentTween:Play()
-    end
-end
-
-local function stopTween()
-    if currentTween then
-        currentTween:Cancel()
-        currentTween = nil
-    end
-end
+  
+  local function stopTween()
+      if currentTween then
+          currentTween:Cancel()
+          currentTween = nil
+      end
+  end
 
 
 spawn(function()
@@ -1270,3 +1245,17 @@ spawn(function()
       end)
     end)
   end)
+  ------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+  function BTP(p)
+    pcall(function()
+        if (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 1500 and not Auto_Raid and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+            repeat wait()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
+                wait(1)
+                game.Players.LocalPlayer.Character.Head:Destroy()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
+            until (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 1500 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
+        end
+    end)
+end
