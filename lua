@@ -1257,13 +1257,9 @@ spawn(
         end
     end
 )
-local Autolivi = Tabs.Main:AddToggle("Autolivi", {
-    Title = "Auto Farm Level",
-    Description = "",
-    Default = _G.AutoFarm })
-    Autolivi:OnChanged(function(Value)
+MainLevel = Tabs.Main:AddToggle("MainLevel", {Title = "Auto Level Fram", Default = false })
+MainLevel:OnChanged(function(Value)
     _G.AutoFarm = Value
-    saveSettings()
 end)
     spawn(function()
         while wait() do
