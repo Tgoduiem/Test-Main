@@ -1,6 +1,17 @@
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
 local plr = game.Players.LocalPlayer
 
+repeat
+    wait(10)
+until game:IsLoaded(10)
+if game.PlaceId == 2753915549 then
+    World1 = true
+elseif game.PlaceId == 4442272183 then
+    World2 = true
+elseif game.PlaceId == 7449423635 then
+    World3 = true
+end
+
 local Players = game:GetService("Players")
 local Title = "....."
 local SubTitle = "By Ztx" --Main Rewrite discord.gg/9PzEWrzgXR
@@ -890,15 +901,11 @@ spawn(function()
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         StartMagnet = false
                         CheckQuest()
-                        if BypassTP then
-                            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 2000 then
-						        BTP(CFrameQuest)
                             elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 2000 then
                                 topos(CFrameQuest)
                             else
 						        topos(CFrameQuest)
 					        end
-                        end
 					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 20 then
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
                     end
@@ -944,36 +951,7 @@ spawn(function()
         end
     end)
 
-task.spawn(function()
-  local PortalPos = {}
-  
-  if World1 then
-    PortalPos = {
-      Vector3.new(-4652, 873, -1754), -- Sky Island 1
-      Vector3.new(-7895, 5547, -380), -- Sky Island 2
-      Vector3.new(61164, 5, 1820), -- Under Water Island
-      Vector3.new(3865, 5, -1926) -- Under Water Island Entrace
-    }
-  elseif World2 then
-    PortalPos = {
-      Vector3.new(-317, 331, 597), -- Flamingo Mansion
-      Vector3.new(2283, 15, 867), -- Flamingo Room
-      Vector3.new(923, 125, 32853), -- Cursed Ship
-      Vector3.new(-6509, 83, -133) -- Zombie Island0
-    }
-  elseif World3 then
-    PortalPos = {
-      Vector3.new(-12471, 374, -7551), -- Mansion
-      Vector3.new(5756, 610, -282), -- Hydra Island
-      Vector3.new(-5092, 315, -3130), -- Castle on the Sea
-      Vector3.new(-12001, 332, -8861), -- Floating Turtle
-      Vector3.new(5319, 23, -93), -- Beautiful Pirate
-      Vector3.new(5314.58203, 22.5364361, -125.942276, 1, 2.14762768e-08, -1.99111154e-13, -2.14762768e-08, 1, -3.0510602e-08, 1.98455903e-13, 3.0510602e-08, 1), -- room bot cavender
-      Vector3.new(28286, 14897, 103) -- Temple of Time
-    }
-  end
-
-  ocal ReplicatedStorage = game:GetService("ReplicatedStorage")
+  local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local VirtualUser = game:GetService("VirtualUser")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
@@ -1148,7 +1126,7 @@ local function topos(Tween_Pos)
     elseif block then
         local tweenTime = Distance / getgenv().TweenSpeed
         if Distance <= 250 then
-            tweenTime = Distance / tonumber(getgenv().TweenSpeed * 1.😎
+            tweenTime = Distance / tonumber(getgenv().TweenSpeed * 1.
         end
         if currentTween then
             currentTween:Pause()
