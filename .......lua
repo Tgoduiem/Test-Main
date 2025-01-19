@@ -1249,14 +1249,6 @@ function TP2(Pos)
     end
     _G.StopTween = false
 end
-
-function BTP(P1)
-game.Players.LocalPlayer.Character.Head:Destroy()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
-wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-end
     spawn(function()
 			while task.wait() do
 				pcall(function()
