@@ -1983,18 +1983,7 @@ print("load save cf ")
     ------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
 
-    function BTP(p)
-    	pcall(function()
-	    	if (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 1500 and not Auto_Raid and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-				repeat wait()
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
-					wait(1)
-					game.Players.LocalPlayer.Character.Head:Destroy()
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
-				until (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 1500 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
-			end
-		end)
-	end
+    
 ------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -2311,13 +2300,7 @@ end
 ------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
 
-function BTP(P1)
-game.Players.LocalPlayer.Character.Head:Destroy()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
-wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-end
+
     spawn(function()
 			while task.wait() do
 				pcall(function()
@@ -3528,16 +3511,13 @@ end)
                     end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         StartMagnet = false
-                        CheckQuest()
-                        if BypassTP then
-                            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 2000 then
-						        BTP(CFrameQuest)
+                        CheckQuest()   
+                            
                             elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 2000 then
                                 topos(CFrameQuest)
                             else
 						        topos(CFrameQuest)
 					        end
-                        end
 					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 20 then
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
                     end
@@ -3579,11 +3559,7 @@ end)
                             end
                         end
                     end
-                end)
-            end
-        end
-    end)
-    
+                
     Tabs.Main:AddSection("Mirage Fruit Dealer")
     local dealermirrafe = Tabs.Main:AddToggle("dealermirrafe", {
     Title = "Teleport Advanced Fruit Dealer",
