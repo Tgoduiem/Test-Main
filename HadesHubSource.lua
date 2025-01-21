@@ -3521,7 +3521,7 @@ local Slider = Tabs.Settings:AddSlider("Slider", {
 end)
 spawn(function()
     while wait() do
-        if FarmMode == "Level" and _G.AutoFarm then
+        if _G.AutoFarm then
             pcall(function()
                 local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                 if not string.find(QuestTitle, NameMon) then
@@ -3532,14 +3532,14 @@ spawn(function()
                     StartMagnet = false
                     CheckQuest()
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
-                    if BypassTP then
+                    
                     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude > 1500 then
                     BTP(CFrameMon)
                     elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude < 1500 then
-                    TP1(CFrameMon)
+                        topos(CFrameMon)
                     end
                 else
-                    TP1(CFrameMon)
+                    topos(CFrameMon)
                 end
                 elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                     CheckQuest()
@@ -3552,7 +3552,7 @@ spawn(function()
                                             EquipWeapon(_G.SelectWeapon)
                                             AutoHaki()                                            
                                             PosMon = v.HumanoidRootPart.CFrame
-                                            TP1(v.HumanoidRootPart.CFrame * Pos)
+                                            topos(v.HumanoidRootPart.CFrame * Pos)
                                             v.HumanoidRootPart.CanCollide = false
                                             v.Humanoid.WalkSpeed = 0
                                             v.Head.CanCollide = false
@@ -3569,11 +3569,11 @@ spawn(function()
                             end
                         end
                     else
-                        TP1(CFrameMon)
+                        topos(CFrameMon)
                         UnEquipWeapon(_G.SelectWeapon)
                         StartMagnet = false
                         if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
-                         TP1(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(15,10,2))
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(15,10,2))
                         end
                     end
                 end
