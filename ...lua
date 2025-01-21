@@ -107,7 +107,7 @@ _G.TeleLH = Value
 end)
 
 BypassTP = Tabs.Settings:AddToggle("BypassTP", {Title = "Bypass TP", Default = false })
-BringMob:OnChanged(function(Value)
+BypassTP(function(Value)
   BypassTP = Value
 end)
 
