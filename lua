@@ -1295,7 +1295,7 @@ end)
                                         if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
                                             repeat task.wait()
                                                 EquipWeapon(_G.SelectWeapon)
-                                                NeedAttacking = true
+                                                
                                                 AutoHaki()                        
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 topos(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))                                                
