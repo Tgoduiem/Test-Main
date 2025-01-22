@@ -75,6 +75,18 @@ BringMob:OnChanged(function(Value)
 _G.BringMonster = Value
 end)
 
+local DropdownTweenSpeed = Tabs.Settings:AddDropdown("SelectWeapon", {
+    Title = "Tween Speed",
+    Values = {"200", "250", "300", "350"},
+    Multi = false,
+    Default = 350,
+})
+
+DropdownTweenSpeed:SetValue("TweenSpeed")
+DropdownTweenSpeed:OnChanged(function(Value)
+    getgenv().TweenSpeed = Value
+end)
+
 
 --Main--
 
