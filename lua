@@ -42,42 +42,29 @@ local Tabs = {
 
 local Options = Fluent.Options
 
-SelectWeapon = Tabs.Settings:AddDropdown("SelectWeapon", {
-        Title = "Select Weapon",
-        Values = { "Melee", "Sword" },
-        Multi = false,
-        Default = 1,
-    })
+    ---Tab toggle
+------ Setiings
+    BringMob = Tabs.Settings:AddToggle("BringMob", {Title = "Bring Mob", Default = true })
+BringMob:OnChanged(function(Value)
+_G.BringMonster = Value
+end)
+--- Main
+MainLevel = Tabs.Main:AddToggle("MainLevel", {Title = "Auto Level Fram", Default = false })
+MainLevel:OnChanged(function(Value)
+    _G.AutoFarm = Value
+end)
 
-    SelectWeapon:SetValue("Melee")
+local DropdownTweenSpeed = Tabs.Settings:AddDropdown("SelectWeapon", {
+    Title = "Tween Speed",
+    Values = {"350", "400", "450", "700"},
+    Multi = false,
+    Default = 400,
+})
 
-    SelectWeapon:OnChanged(function(Value)
-        _G.SelectWeapon = Value
-    end)
-
-    task.spawn(function()
-        while wait() do
-            pcall(function()
-                if _G.SelectWeapon == "Melee" then
-                    for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                        if v.ToolTip == "Melee" then
-                            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                                _G.SelectWeapon = v.Name
-                            end
-                        end
-                    end
-                elseif _G.SelectWeapon == "Sword" then
-                    for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                        if v.ToolTip == "Sword" then
-                            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                                _G.SelectWeapon = v.Name
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end)
+DropdownTweenSpeed:SetValue("TweenSpeed")
+DropdownTweenSpeed:OnChanged(function(Value)
+    getgenv().TweenSpeed = Value
+end)
 
 function AutoHaki()
         if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
@@ -710,6 +697,68 @@ function CheckQuest()
         end
     end
 end
+--- Support Function
+SelectWeapon = Tabs.Settings:AddDropdown("SelectWeapon", {
+    Title = "Select Weapon",
+    Values = { "Melee", "Sword" },
+    Multi = false,
+    Default = 1,
+})
+
+SelectWeapon:SetValue("Melee")
+
+SelectWeapon:OnChanged(function(Value)
+    _G.SelectWeapon = Value
+end)
+
+task.spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.SelectWeapon == "Melee" then
+                for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == "Melee" then
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                            _G.SelectWeapon = v.Name
+                        end
+                    end
+                end
+            elseif _G.SelectWeapon == "Sword" then
+                for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == "Sword" then
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                            _G.SelectWeapon = v.Name
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+-------------------------------------------
+---------------------------------------------
+function EquipWeapon(ToolSe)
+    if not game.Players.LocalPlayer.Character:FindFirstChild(ToolSe) then
+        if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
+            Tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+            game.Players.LocalPlayer.Character.Humanoid:EquipTool(Tool)
+        end
+    end
+end
+-------------------------------------------
+---------------------------------------------
+function UnEquipWeapon(Weapon)
+    if game.Players.LocalPlayer.Character:FindFirstChild(Weapon) then
+        _G.NotAutoEquip = true
+        wait(.5)
+        game.Players.LocalPlayer.Character:FindFirstChild(Weapon).Parent = game.Players.LocalPlayer.Backpack
+        wait(.1)
+        _G.NotAutoEquip = false
+    end
+end
+-------------------------------------------
+--------------------------------------------
+
 repeat
     wait()
 until game:IsLoaded()
@@ -1092,22 +1141,6 @@ spawn(function()
   end)
   ------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
-BringMob = Tabs.Settings:AddToggle("BringMob", {Title = "Bring Mob", Default = true })
-BringMob:OnChanged(function(Value)
-_G.BringMonster = Value
-end)
-
-local DropdownTweenSpeed = Tabs.Settings:AddDropdown("SelectWeapon", {
-        Title = "Tween Speed",
-        Values = {"350", "400", "450", "700"},
-        Multi = false,
-        Default = 400,
-    })
-
-    DropdownTweenSpeed:SetValue("TweenSpeed")
-    DropdownTweenSpeed:OnChanged(function(Value)
-        getgenv().TweenSpeed = Value
-    end)
 
 task.spawn(
     function()
